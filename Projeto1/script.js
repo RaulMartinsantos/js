@@ -1,7 +1,16 @@
-//cotação das moedas
-const USD = 4.98;
-const EUR = 5.82;
-const GBP = 6.71;
+//API que recebe os  valores das cotações
+
+let rates = {};
+
+async function getRates() {
+  const response = await fetch(
+    "https://api.exchangerate-api.com/v4/latest/BRL",
+  );
+  const data = await response.json();
+  rates = data.rates;
+}
+
+getRates();
 
 const form = document.querySelector("form");
 const amount = document.querySelector("#amount");
@@ -20,16 +29,21 @@ amount.addEventListener("input", () => {
 form.onsubmit = (event) => {
   event.preventDefault();
 
+  if (!rates.USD) {
+    alert("Tente novamnete mais tarde");
+    return;
+  }
+
   if (amount.value > 0) {
     switch (currency.value) {
       case "USD":
-        convertCurrency(Number(amount.value), USD, "US$");
+        convertCurrency(Number(amount.value), 1 / rates.USD, "US$");
         break;
       case "EUR":
-        convertCurrency(Number(amount.value), EUR, "€");
+        convertCurrency(Number(amount.value), 1 / rates.EUR, "€");
         break;
       case "GBP":
-        convertCurrency(Number(amount.value), GBP, "£");
+        convertCurrency(Number(amount.value), 1 / rates.GBP, "£");
         break;
     }
   } else {
