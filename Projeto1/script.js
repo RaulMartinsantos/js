@@ -30,7 +30,7 @@ form.onsubmit = (event) => {
   event.preventDefault();
 
   if (!rates.USD) {
-    alert("Tente novamnete mais tarde");
+    alert("Tente novamente mais tarde");
     return;
   }
 
