@@ -10,5 +10,6 @@ console.log(users);
 
 let positions = users.indexOf("Tamires");
 
+console.log(positions)
 users.splice(positions, 1);
 console.log(users);
