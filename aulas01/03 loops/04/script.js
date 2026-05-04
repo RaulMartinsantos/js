@@ -14,3 +14,8 @@ let usrs = [
 for (let usr of usrs) {
   console.log(usr);
 }
+
+
+const s = ""
+
+let formated = s.toLowerCase
