@@ -6,6 +6,8 @@ const category = document.querySelector("#category");
 
 //seleciona os elementos da lista
 const expenseList = document.querySelector("ul");
+const expensesQuantity = document.querySelector("aside header h2");
+const expensesTotal = document.querySelector("aside header p span");
 
 //permite apenas inputs numéricos e já formatado para real
 amount.addEventListener("input", () => {
@@ -53,8 +55,8 @@ function expenseAdd(newExpense) {
     expenseIcon.setAttribute("src", `img/${newExpense.category_id}.svg`);
     expenseIcon.setAttribute("alt", newExpense.category_name);
 
-    const divwraper = document.createElement("div");
-    divwraper.classList.add("expense-info");
+    const divWrapper = document.createElement("div");
+    divWrapper.classList.add("expense-info");
 
     const expenseName = document.createElement("strong");
     expenseName.innerHTML = expense.value;
@@ -65,7 +67,6 @@ function expenseAdd(newExpense) {
     const expenseAmount = document.createElement("span");
     expenseAmount.classList.add("expense-amount");
     expenseAmount.innerHTML = `<small>R$</small>${amount.value.replace("R$", "")}`;
-    console.log(expense.value);
 
     const removeIcon = document.createElement("img");
     removeIcon.classList.add("remove-icon");
@@ -76,13 +77,47 @@ function expenseAdd(newExpense) {
 
     expenseList.append(expenseItem);
     expenseItem.append(expenseIcon);
-    expenseItem.append(divwraper);
-    divwraper.append(expenseName);
-    divwraper.append(expenseType);
+    expenseItem.append(divWrapper);
+    divWrapper.append(expenseName);
+    divWrapper.append(expenseType);
     expenseItem.append(expenseAmount);
     expenseItem.append(removeIcon);
+
+    totalUpdate();
   } catch (err) {
     alert("Erro tente novamente mais tarde");
     console.log(err);
+  }
+}
+
+//Atualiza os totais
+
+function totalUpdate() {
+  try {
+    const items = expenseList.children;
+    expensesTotal.textContent = `${items.length} ${
+      items.length > 1 ? "despesas" : "despesa"
+    }`;
+
+    let total = 0;
+
+    for (let i = 0; i < items.length; i++) {
+      const itemAmount = items[i].querySelector(".expense-amount");
+
+      let value = itemAmount.textContent.replace(/[^\d]/g, "");
+      value = parseFloat(value);
+
+      if (isNaN(value)) {
+        return alert("Não foi possível calcular o total");
+      }
+      total += Number(value);
+    }
+
+    expensesQuantity.innerHTML = `<small>R$</small> ${formatCurrencyBRL(
+      total / 100,
+    ).replace("R$", "")}`;
+  } catch (err) {
+    console.log(err);
+    alert("Não foi possível atualizar os totais");
   }
 }
