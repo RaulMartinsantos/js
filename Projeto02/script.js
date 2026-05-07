@@ -98,7 +98,6 @@ function totalUpdate() {
     expensesTotal.textContent = `${items.length} ${
       items.length > 1 ? "despesas" : "despesa"
     }`;
-
     let total = 0;
 
     for (let i = 0; i < items.length; i++) {
@@ -121,3 +120,13 @@ function totalUpdate() {
     alert("Não foi possível atualizar os totais");
   }
 }
+
+//remove a li da despesa
+
+expenseList.addEventListener("click", (event) => {
+  if (event.target.classList.contains("remove-icon")) {
+    const li = event.target.closest("li");
+    li.remove();
+    totalUpdate();
+  }
+});
