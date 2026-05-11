@@ -18,4 +18,4 @@ for (let usr of usrs) {
 
 const s = ""
 
-let formated = s.toLowerCase
+let formatted = s.toLowerCase
