@@ -15,7 +15,15 @@ for (let usr of usrs) {
   console.log(usr);
 }
 
+let numbers = [1, 2, 3, 4];
 
-const s = ""
+let samengo = 5;
 
-let formatted = s.toLowerCase
+const comparador = numbers.find((number) => number === samengo);
+
+if (comparador !== undefined) {
+  console.log("esse numero já existe");
+} else {
+  numbers.push(samengo);
+  console.log(numbers);
+}
