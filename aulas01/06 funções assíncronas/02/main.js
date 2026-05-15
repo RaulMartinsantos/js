@@ -1,7 +1,7 @@
 function asyncFunction() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const isSuccess = false;
+      const isSuccess = true;
 
       if (isSuccess) {
         resolve("A operação foi concluída com sucesso");
