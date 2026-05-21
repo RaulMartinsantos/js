@@ -1,1 +1,21 @@
-{}
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Mouse",
+      "price": 150
+    },
+    {
+      "id": "2",
+      "name": "Teclado",
+      "price": 170
+    },
+    {
+      "id": "3",
+      "name": "Monitor",
+      "price": 1700
+    }
+  ],
+  "users": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}
