@@ -22,6 +22,13 @@ const form = document.getElementsByTagName("form")[0];
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
+  if (productName.value == "") {
+    return alert("Digite um nome para o produto");
+  }
+  if (!productPrice.value || Number(productPrice.value) < 1) {
+    return alert("Digite um valor valido");
+  }
+
   await fetch("http://localhost:3333/products/", {
     method: "POST",
     headers: {
