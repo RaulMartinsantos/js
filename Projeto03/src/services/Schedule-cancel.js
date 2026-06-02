@@ -1,0 +1,13 @@
+import { apiConfig } from "./api-config.js";
+
+export async function scheduleCancel({ id }) {
+  try {
+    await fetch(`${apiConfig.baseURL}/schedules/${id}`, {
+      method: "DELETE",
+    });
+    alert("Agendamento cancelado com sucesso");
+  } catch (err) {
+    console.log(err);
+    alert("Não foi possível cancelar o agendamento tente novamente mais tarde");
+  }
+}
