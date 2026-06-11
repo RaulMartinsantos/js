@@ -1,0 +1,12 @@
+{
+  "name": "projeto04",
+  "version": "1.0.0",
+  "description": "Projeto Node",
+  "main": "./src/server.js",
+  "scripts": {
+    "dev": "node --watch src/server.js"
+  },
+  "author": "Raul Santos",
+  "license": "ISC",
+  "type": "module"
+}
