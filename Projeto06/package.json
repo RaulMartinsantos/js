@@ -1,0 +1,14 @@
+{
+  "name": "projeto06",
+  "version": "1.0.0",
+  "description": "API REST com Node",
+  "main": "/src/server.ts",
+  "scripts": {},
+  "author": "Raul Santos",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^20.14.12",
+    "typescript": "^5.5.4"
+  }
+}
