@@ -27,7 +27,6 @@ class TablesSessionsController {
 
       const session = await db<TablesSessionsRepository>("tables_sessions")
         .where({ table_id })
-        .orderBy("opened_at", "desc")
         .first();
 
       if (session && !session.closed_at) {
@@ -39,7 +38,7 @@ class TablesSessionsController {
         opened_at: db.fn.now(),
       });
 
-      return response.status(201).json({ message: "Works!" });
+      return response.status(201).json({ message: "Table opened!" });
     } catch (err) {
       next(err);
     }
@@ -54,9 +53,7 @@ class TablesSessionsController {
         .parse(request.params.id);
 
       const session = await db<TablesSessionsRepository>("tables_sessions")
-        .where({
-          id,
-        })
+        .where({ id })
         .first();
 
       if (!session) {
@@ -68,9 +65,7 @@ class TablesSessionsController {
       }
 
       await db<TablesSessionsRepository>("tables_sessions")
-        .update({
-          closed_at: db.fn.now(),
-        })
+        .update({ closed_at: db.fn.now() })
         .where({ id });
 
       return response.json({ message: `Table ${id} closed` });
