@@ -28,7 +28,7 @@ class ProductsController {
         .gte(5, { message: "Value must be at least 5" }),
     });
 
-    const { name, price } = bodySchema.parse(request.body);
+    const { name, price } = bodySchema.parse(request.body); 
 
     /*
     if (!name) {
