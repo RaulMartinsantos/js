@@ -6,6 +6,10 @@ const server = http.createServer(async (request, response) => {
     return response.end("Hello world");
   }
 
+  if (request.method === "POST" && request.url=== "/") {
+    return response.writeHead(201).end({ message : "test" })
+  }
+
   return response.writeHead(400).end("not found");
 });
 
