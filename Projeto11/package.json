@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "prisma": "npx prisma server"
+    "prisma": "npx prisma studio"
   },
   "license": "ISC",
   "dependencies": {
