@@ -3,7 +3,14 @@ import { prisma } from "@/prisma";
 
 class QuestionsController {
   async index(request: Request, response: Response) {
-    const questions = await prisma.questions.findMany();
+    const questions = await prisma.questions.findMany({
+      where: {
+        title: {
+          contains: request.query.title?.toString().trim(),
+          mode: "insensitive",
+        },
+      },
+    });
     return response.json(questions);
   }
 
@@ -18,11 +25,30 @@ class QuestionsController {
   }
 
   async update(request: Request, response: Response) {
-    return response.json();
+    const { id } = request.params;
+    const { title, content } = request.body;
+
+    await prisma.questions.update({
+      data: {
+        title,
+        content,
+      },
+      where: {
+        id,
+      },
+    });
+
+    return response.json({ message: "Updated" });
   }
 
   async remove(request: Request, response: Response) {
-    return response.json();
+    const { id } = request.params;
+    await prisma.questions.delete({
+      where: {
+        id,
+      },
+    });
+    return response.json({ message: "deleted!" });
   }
 }
 
