@@ -14,7 +14,9 @@ class UserController {
 
     const { name, email, password } = bodySchema.parse(req.body);
 
-    const userWithSameEmail = await prisma.user.findFirst({ where: { email } });
+    const userWithSameEmail = await prisma.user.findUnique({
+      where: { email },
+    });
 
     if (userWithSameEmail) {
       throw new AppError("User email already exists");

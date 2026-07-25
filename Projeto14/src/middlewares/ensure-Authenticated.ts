@@ -26,7 +26,7 @@ function ensureAuth(req: Request, res: Response, next: NextFunction) {
 
     req.user = {
       id: user_id,
-      role,
+      role: role,
     };
 
     return next();

@@ -18,6 +18,10 @@ deliveriesRoutes.post(
   deliveriesControllers.create,
 );
 
-deliveriesRoutes.put("/:id/status", deliveriesStatusController.update);
+deliveriesRoutes.put(
+  "/:id/status",
+  verifyUserAuthorization(["sale"]),
+  deliveriesStatusController.update,
+);
 
 export { deliveriesRoutes };
