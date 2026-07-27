@@ -7,6 +7,10 @@
       "@/*": ["./src/*"]
     },
 
+    "types": [
+      "jest"
+    ],
+
     "module": "node16",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
