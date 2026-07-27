@@ -8,6 +8,12 @@ const deliveriesLogsControllers = new DeliveryLogsController();
 
 deliveryLogsRoutes.use(ensureAuth);
 
+deliveryLogsRoutes.get(
+  "/:delivery_id/show",
+  verifyUserAuthorization(["sale", "customer"]),
+  deliveriesLogsControllers.show,
+);
+
 deliveryLogsRoutes.post(
   "/",
   verifyUserAuthorization(["sale"]),
