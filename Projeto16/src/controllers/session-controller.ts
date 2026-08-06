@@ -1,10 +1,10 @@
 import { z } from "zod";
 import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
-import { authConfig } from "@/config/auth";
 import { prisma } from "@/database/prisma";
-import { AppError } from "@/utils/AppError";
+import { authConfig } from "@/config/auth";
 import { Request, Response } from "express";
+import { AppError } from "@/utils/AppError";
 
 class SessionsController {
   async create(req: Request, res: Response) {
