@@ -3,8 +3,8 @@ import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
 import { prisma } from "@/database/prisma";
 import { authConfig } from "@/config/auth";
-import { Request, Response } from "express";
 import { AppError } from "@/utils/AppError";
+import { Request, Response } from "express";
 
 class SessionsController {
   async create(req: Request, res: Response) {
