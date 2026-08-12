@@ -1,9 +1,9 @@
 import { Router } from "express";
 import { userRoutes } from "@/routes/usersRoutes";
+import { uploadRoutes } from "@/routes/uploadRoutes";
 import { refundsRoutes } from "@/routes/refundRoutes";
 import { sessionsRoutes } from "@/routes/sessionRoutes";
 import { ensureAuthenticated } from "@/middlewares/ensure-authenticated";
-
 
 const routes = Router();
 
@@ -14,5 +14,6 @@ routes.use("/sessions", sessionsRoutes);
 //Rotas privadas
 routes.use(ensureAuthenticated);
 routes.use("/refunds", refundsRoutes);
+routes.use("/uploads", uploadRoutes);
 
 export { routes };

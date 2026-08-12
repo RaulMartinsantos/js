@@ -11,6 +11,12 @@ refundsRoutes.get(
   refundsController.index,
 );
 
+refundsRoutes.get(
+  "/:id",
+  verifyUserAuthorization(["manager", "employee"]),
+  refundsController.show,
+);
+
 refundsRoutes.post(
   "/",
   verifyUserAuthorization(["employee"]),
