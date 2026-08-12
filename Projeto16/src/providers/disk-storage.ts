@@ -9,9 +9,9 @@ class DiskStorage {
 
     try {
       await fs.promises.access(tmpPath);
-    } catch (err: any) {
+    } catch (err) {
       console.log(err);
-      throw new err(`Arquivo não encontrado: ${tmpPath}`);
+      throw new Error(`Arquivo não encontrado: ${tmpPath}`);
     }
 
     await fs.promises.mkdir(uploadConfig.UPLOADS_FOLDER, { recursive: true });

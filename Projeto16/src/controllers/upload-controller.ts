@@ -1,8 +1,8 @@
 import { z, ZodError } from "zod";
 import uploadConfig from "@/config/upload";
+import { AppError } from "@/utils/AppError";
 import { Request, Response } from "express";
 import { DiskStorage } from "@/providers/disk-storage";
-import { AppError } from "@/utils/AppError";
 
 class UploadsController {
   async create(req: Request, res: Response) {
