@@ -1,0 +1,29 @@
+$kind: http-request
+name: Login
+url: http://localhost:3333/sessions
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"userName\": \"maria\",\r
+
+    \    \"password\": \"password\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: ""
+scripts:
+  - type: beforeRequest
+    code: ""
+    language: text/javascript
+  - type: afterResponse
+    code: "const response = pm.response.json();\r
+
+      \r
+
+      pm.environment.set(\"jwt\", response.token);\r\n"
+    language: text/javascript
+order: 1784582334864

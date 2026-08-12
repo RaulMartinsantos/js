@@ -1,0 +1,13 @@
+$kind: http-request
+name: Create
+url: "{{BASE_URL}}/deliveries"
+method: POST
+headers:
+  - key: authorization
+    value: ""
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{jwt}}"
+order: 1784928628417

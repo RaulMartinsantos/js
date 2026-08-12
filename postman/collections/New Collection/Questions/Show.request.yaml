@@ -1,0 +1,5 @@
+$kind: http-request
+name: Show
+url: http://localhost:3333/questions
+method: GET
+order: 4000

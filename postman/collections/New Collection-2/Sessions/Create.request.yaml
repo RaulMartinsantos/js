@@ -1,0 +1,14 @@
+$kind: http-request
+name: Create
+url: "{{BASE_URL}}/sessions"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"email\": \"raul@email.com\",\r
+
+    \    \"password\": \"123456\"\r
+
+    }"
+order: 2000

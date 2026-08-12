@@ -1,0 +1,5 @@
+$kind: http-request
+name: Index
+url: http://localhost:3333/questions/9fccb565-967d-4da5-b895-9265e87698af
+method: GET
+order: 1000

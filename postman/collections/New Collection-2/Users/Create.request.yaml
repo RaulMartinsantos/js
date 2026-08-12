@@ -1,0 +1,16 @@
+$kind: http-request
+name: Create
+url: "{{BASE_URL}}/{{RESOURCE}}"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"name\": \"Raul\",\r
+
+    \    \"email\": \"raul@email.com\",\r
+
+    \    \"password\": \"123456\"\r
+
+    }"
+order: 1784752319393

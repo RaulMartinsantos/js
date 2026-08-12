@@ -3,3 +3,5 @@ dist
 dockerfile
 .git
 .dockerignore
+docker-compose.yaml
+.vscode

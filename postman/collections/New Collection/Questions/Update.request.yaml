@@ -1,0 +1,14 @@
+$kind: http-request
+name: Update
+url: http://localhost:3333/questions/b105dba8-7113-4d71-8fa5-0efd658530e4
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \    \"title\": \"Node.js\",\r
+
+    \    \"content\": \"Como fazer um crud com node puro\"\r
+
+    }"
+order: 2492

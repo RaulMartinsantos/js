@@ -1,0 +1,13 @@
+$kind: http-request
+name: Create
+url: http://localhost:3333/products
+method: POST
+auth:
+  type: bearer
+  credentials:
+    token: "{{jwt}}"
+scripts:
+  - type: beforeRequest
+    code: ""
+    language: text/javascript
+order: 1802

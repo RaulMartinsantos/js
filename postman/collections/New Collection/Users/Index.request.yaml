@@ -1,0 +1,5 @@
+$kind: http-request
+name: Index
+url: http://localhost:3333/users
+method: GET
+order: 1784576195707
